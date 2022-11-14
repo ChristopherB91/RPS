@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <link rel="stylesheet" href="Style.css">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RPS game</title>
+    <h1 class="sub-title"><b>WELCOME TO RPS</b></h1>
+    <h2 class="sub-title"><i>Here you will play a game of Rock Paper Scissors.</i></h2>
+    <br/>
+    <br/>
+    <div id="imgs" style="display: flex; justify-content: space-between;">
+        <button onclick="play(0)"><img src="imgs/rock.jpg"/></button>
+        <img src="imgs/versus.jpg"/>
+        <button onclick="play(1)"><img src="imgs/paper.jpg"/></button>
+        <img src="imgs/versus.jpg"/>
+        <button onclick="play(2)"><img src="imgs/scissors.jpg"/></button>
+    </div>
+</head>
+<br/>
+<body>
+    <p id = 'results' style="display: flex; justify-content: center;">Click one of the photos above.</p>
+    <div style="display: flex; justify-content: space-evenly;">
+        <p id="player">Player Score: 0</p>
+        <p id="comp">Computer Score: 0</p>
+    </div>
+    <div style="display: flex; justify-content: space-evenly;">
+        <p id="pChoice"></p>
+        <p id="cChoice"></p>
+    </div>
+    <br/>
+</body>
+<script src="Script.js"></script>
+</html>
