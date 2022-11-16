@@ -1,22 +1,24 @@
 let playerScore = 0;
-let compScore = 0; 
+let compScore = 0;
+
+function play(num) {
 const Selections = [
     {
-        Name: 'Rock',
-        Beats: 'Scissors'
+        name: 'rock',
+        beats: 'scissors'
     },
     {
-        Name: 'Paper',
-        Beats: 'Rock'
+        name: 'paper',
+        beats: 'rock'
     },
     {
-        Name: 'Scissors',
-        Beats: 'Paper'
+        name: 'scissors',
+        beats: 'paper'
     }
 ]
 
 function computerSelection() {
-    let compC = Math.floor(Math.random() * (2 - 1 + 1) + 1);
+    let compC = Math.floor(Math.random() * 3);
     return Selections[compC]
 }
 
@@ -25,35 +27,56 @@ function playerSelection(nums) {
 }
 
 function isWinner(selection, opponent){
-    return selection.Beats === opponent.Name
-}
-
-function Draw(selection, opponent){
-    return selection.Name === opponent.Name
-}
-
-function play(num) {
-    let playerWinner = isWinner(playerSelection(num), computerSelection())
-    let computerWinner = isWinner(computerSelection(), playerSelection(num))
-    let draw = Draw(playerSelection(num), computerSelection())
-    if(draw === true){
+    if(selection === opponent){
         document.querySelector('#results').innerHTML = 'DRAW'
-        document.querySelector('#pChoice').innerHTML = playerSelection(num).Name
-        document.querySelector('#cChoice').innerHTML = computerSelection().Name
-        console.log(playerSelection(num), computerSelection(), 3);
-    }else if(playerWinner === true){
-        playerScore++
-            document.querySelector('#player').innerHTML = 'Player Score:' + ' ' + playerScore
-            document.querySelector('#results').innerHTML = 'WIN'
-            document.querySelector('#pChoice').innerHTML = playerSelection(num).Name
-            document.querySelector('#cChoice').innerHTML = computerSelection().Name
-            console.log(playerSelection(num), computerSelection(), 1);
-    }else if(computerWinner === true){
+        document.querySelector('#pChoice').innerHTML = selection.name
+        document.querySelector('#cChoice').innerHTML = opponent.name
+    }
+    else if(selection.name == 'rock'){
+        if(opponent.name == 'paper'){
         compScore++
         document.querySelector('#comp').innerHTML = 'Computer Score:' + ' ' + compScore
         document.querySelector('#results').innerHTML = 'LOOSE'
-        document.querySelector('#pChoice').innerHTML = playerSelection(num).Name
-        document.querySelector('#cChoice').innerHTML = computerSelection().Name
-        console.log(playerSelection(num), computerSelection(), 2);
+        document.querySelector('#pChoice').innerHTML = selection.name
+        document.querySelector('#cChoice').innerHTML = opponent.name
+        }else{
+        playerScore++
+        document.querySelector('#player').innerHTML = 'Player Score:' + ' ' + playerScore
+        document.querySelector('#results').innerHTML = 'WIN'
+        document.querySelector('#pChoice').innerHTML = selection.name
+        document.querySelector('#cChoice').innerHTML = opponent.name
+        }
     }
+    else if(selection.name == 'scissors'){
+        if(opponent.name == 'rock'){
+        compScore++
+        document.querySelector('#comp').innerHTML = 'Computer Score:' + ' ' + compScore
+        document.querySelector('#results').innerHTML = 'LOOSE'
+        document.querySelector('#pChoice').innerHTML = selection.name
+        document.querySelector('#cChoice').innerHTML = opponent.name
+        }else{
+        playerScore++
+        document.querySelector('#player').innerHTML = 'Player Score:' + ' ' + playerScore
+        document.querySelector('#results').innerHTML = 'WIN'
+        document.querySelector('#pChoice').innerHTML = selection.name
+        document.querySelector('#cChoice').innerHTML = opponent.name
+        }
+    }
+    else if(selection.name == 'paper'){
+        if(opponent.name == 'scissors'){
+        compScore++
+        document.querySelector('#comp').innerHTML = 'Computer Score:' + ' ' + compScore
+        document.querySelector('#results').innerHTML = 'LOOSE'
+        document.querySelector('#pChoice').innerHTML = selection.name
+        document.querySelector('#cChoice').innerHTML = opponent.name
+        }else{
+        playerScore++
+        document.querySelector('#player').innerHTML = 'Player Score:' + ' ' + playerScore
+        document.querySelector('#results').innerHTML = 'WIN'
+        document.querySelector('#pChoice').innerHTML = selection.name
+        document.querySelector('#cChoice').innerHTML = opponent.name
+        }
+    }
+}
+    isWinner(playerSelection(num), computerSelection())
 }
