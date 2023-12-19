@@ -1,35 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-    <link rel="stylesheet" href="Style.css">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="Style.css" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>RPS game</title>
     <h1 class="sub-title"><b>WELCOME TO RPS</b></h1>
-    <h2 class="sub-title"><i>Here you will play a game of Rock Paper Scissors.</i></h2>
-    <br/>
-    <br/>
-    <div id="imgs" style="display: flex; justify-content: space-between;">
-        <button onclick="play(0)"><img src="imgs/rock.jpg"/></button>
-        <img src="imgs/versus.jpg"/>
-        <button onclick="play(1)"><img src="imgs/paper.jpg"/></button>
-        <img src="imgs/versus.jpg"/>
-        <button onclick="play(2)"><img src="imgs/scissors.jpg"/></button>
+    <h2 class="sub-title">
+      <i>Here you will play a game of Rock Paper Scissors. First to 5.</i>
+    </h2>
+    <div id="mobile">
+      <p class="player">Player Score: 0</p>
+      <p class="comp">Computer Score: 0</p>
+      <p class="pChoice">pChoice</p>
+      <p class="cChoice">cChoice</p>
     </div>
-</head>
-<br/>
-<body>
-    <p id = 'results' style="display: flex; justify-content: center;">Click one of the photos above.</p>
-    <div style="display: flex; justify-content: space-evenly;">
-        <p id="player">Player Score: 0</p>
-        <p id="comp">Computer Score: 0</p>
+    <br />
+    <br />
+    <div class="container">
+      <div id="imgs" style="display: flex; justify-content: space-between">
+        <input type="image" onclick="play(0)" src="imgs/rock.jpg" />
+        <img class="vs" src="imgs/versus.jpg" />
+        <input type="image" onclick="play(1)" src="imgs/paper.jpg" />
+        <img class="vs" src="imgs/versus.jpg" />
+        <input type="image" onclick="play(2)" src="imgs/scissors.jpg" />
+      </div>
     </div>
-    <div style="display: flex; justify-content: space-evenly;">
-        <p id="pChoice"></p>
-        <p id="cChoice"></p>
-    </div>
-    <br/>
-</body>
-<script src="Script.js"></script>
+  </head>
+  <br />
+  <body>
+    <p id="results">Click one of the photos above.</p>
+    <br />
+  </body>
+  <script src="Script.js"></script>
 </html>
